@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8"/>
@@ -13,10 +13,94 @@
 	</div>
 
 	<div class="row">
-		<form action="#" th:action="@{/bidList/update/{id}(id=${bidList.bidListId})}" th:object="${bidList}" method="post" class="form-horizontal" style="width: 100%">
-			<!--
-			TODO: Create a form to edit the values of Bid, there are 2 buttons: Update data and Cancel to the list Bid
-			 -->
+		<form th:action="@{/bidList/update/{id}(id=${bidList.bidListId})}" th:object="${bidList}" method="post" class="form-horizontal" style="width: 100%">
+				<div class="form-edit">
+					<label for="account">Enter your account: </label>
+					<input type="text" name="account" id="account" required th:value="${bidList.getAccount()}" onfocus="this.value='';" >
+				</div>
+				<div class="form-edit">
+					<label for="type">Enter your type: </label>
+					<input type="text" name="type" id="type" required th:value="${bidList.getType()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="bidQuantity">Enter your bidQuantity: </label>
+					<input type="text" name="bidQuantity" id="bidQuantity" required th:value="${bidList.getBidQuantity()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="askQuantity">Enter your askQuantity: </label>
+					<input type="text" name="askQuantity" id="askQuantity" required th:value="${bidList.getAskQuantity()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="bid">Enter your bid: </label>
+					<input type="text" name="bid" id="bid" required th:value="${bidList.getBid()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="ask">Enter your ask: </label>
+					<input type="text" name="ask" id="ask" required th:value="${bidList.getAsk()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="benchmark">Enter your benchmark: </label>
+					<input type="text" name="benchmark" id="benchmark" required th:value="${bidList.getBenchmark()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="bidListDate">Enter your bidListDate: </label>
+					<input type="date" name="bidListDate" id="bidListDate" required th:value="${bidList.getBidListDate()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="commentary">Enter your commentary: </label>
+					<input type="text" name="commentary" id="commentary" required th:value="${bidList.getCommentary()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="security">Enter your security: </label>
+					<input type="text" name="security" id="security" required th:value="${bidList.getSecurity()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="status">Enter your status: </label>
+					<input type="text" name="status" id="status" required th:value="${bidList.getStatus()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="trader">Enter your trader: </label>
+					<input type="text" name="trader" id="trader" required th:value="${bidList.getTrader()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="book">Enter your book: </label>
+					<input type="text" name="book" id="book" required th:value="${bidList.getBook()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="creationName">Enter your creationName: </label>
+					<input type="text" name="creationName" id="creationName" required th:value="${bidList.getCreationName()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="creationDate">Enter your creationDate: </label>
+					<input type="date" name="creationDate" id="creationDate" required th:value="${bidList.getCreationDate()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="revisionName">Enter your revisionName: </label>
+					<input type="text" name="revisionName" id="revisionName" required th:value="${bidList.getRevisionName()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="revisionDate">Enter your revisionDate: </label>
+					<input type="date" name="revisionDate" id="revisionDate" required th:value="${bidList.getRevisionDate()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="dealName">Enter your dealName: </label>
+					<input type="text" name="dealName" id="dealName" required th:value="${bidList.getDealName()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="dealType">Enter your dealType: </label>
+					<input type="text" name="dealType" id="dealType" required th:value="${bidList.getDealType()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="sourceListId">Enter your sourceListId: </label>
+					<input type="text" name="sourceListId" id="sourceListId" required th:value="${bidList.getSourceListId()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<label for="side">Enter your side: </label>
+					<input type="text" name="side" id="side" required th:value="${bidList.getSide()}" onfocus="this.value='';">
+				</div>
+				<div class="form-edit">
+					<input type="submit" value="Edit">
+				</div>
 		</form>
 	</div>
 

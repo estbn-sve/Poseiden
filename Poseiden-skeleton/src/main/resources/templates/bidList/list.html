@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8"/>
-<title>Home</title>
-<link rel="stylesheet" href="../../css/bootstrap.min.css" >
+	<meta charset="utf-8"/>
+	<title>Home</title>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css" >
 </head>
 <body>
 <div class="container">
@@ -26,18 +26,39 @@
 	<div class="row"><h2>Bid List</h2></div>
 	<div class="row">
 		<a href="/bidList/add" class="btn btn-primary btn-sm">Add New</a>
+		<br>
 		<table class="table table-bordered">
 			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Account</th>
-					<th>Type</th>
-					<th>Bid Quantity</th>
-					<th>Action</th>
-				</tr>
+			<tr>
+				<th>Id</th>
+				<th>Account</th>
+				<th>Type</th>
+				<th>Bid Quantity</th>
+				<th>Action</th>
+			</tr>
 			</thead>
 			<tbody>
-				<!-- TODO: Show all Bids to the table, the Action column will have Edit & Delete buttons -->
+			<tr th:each="bidList:${bidListList}">
+				<th th:text="${bidList.getBidListId()}"/>
+				<th th:text="${bidList.getAccount()}">
+				<th th:text="${bidList.getType()}"/>
+				<th th:text="${bidList.getBidQuantity()}">
+				<th>
+					<div class="row">
+						&nbsp;
+						&nbsp;
+						<form action="#" th:action="@{/bidList/update/{id}(id=${bidList.getBidListId()})}" th:object="${bidList}" method="GET" class="button-form">
+							<button type="submit" class="btn btn-success">Edit</button>
+						</form>
+						&nbsp;
+						&nbsp;
+						<form action="#" th:action="@{/bidList/delete/{id}(id=${bidList.getBidListId()})}" th:object="${bidList}" method="POST" class="button-form">
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</form>
+					</div>
+				<th/>
+			</tr>
+			<!-- TODO: Show all Bids to the table, the Action column will have Edit & Delete buttons -->
 			</tbody>
 		</table>
 	</div>

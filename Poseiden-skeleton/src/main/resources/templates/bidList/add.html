@@ -15,9 +15,94 @@
 
 	<div class="row">
 		<form action="#" th:action="@{/bidList/validate}" th:object="${bidList}" method="post" class="form-horizontal" style="width: 100%">
-			<!--
-			TODO: Create a form to input the values of Bid, there are 2 buttons: Save data and Cancel to the list Bid
-			 -->
+			<!--TODO: Create a form to input the values of Bid, there are 2 buttons: Save data and Cancel to the list Bid -->
+				<div class="form-add">
+					<label for="account">Enter your account: </label>
+					<input type="text" name="account" id="account" required>
+				</div>
+				<div class="form-add">
+					<label for="type">Enter your type: </label>
+					<input type="text" name="type" id="type" required>
+				</div>
+				<div class="form-add">
+					<label for="bidQuantity">Enter your bidQuantity: </label>
+					<input type="text" name="bidQuantity" id="bidQuantity" required>
+				</div>
+				<div class="form-add">
+					<label for="askQuantity">Enter your askQuantity: </label>
+					<input type="text" name="askQuantity" id="askQuantity" required>
+				</div>
+				<div class="form-add">
+					<label for="bid">Enter your bid: </label>
+					<input type="text" name="bid" id="bid" required>
+				</div>
+				<div class="form-add">
+					<label for="ask">Enter your ask: </label>
+					<input type="text" name="ask" id="ask" required>
+				</div>
+				<div class="form-add">
+					<label for="benchmark">Enter your benchmark: </label>
+					<input type="text" name="benchmark" id="benchmark" required>
+				</div>
+				<div class="form-add">
+					<label for="bidListDate">Enter your bidListDate: </label>
+					<input type="date" name="bidListDate" id="bidListDate" required>
+				</div>
+				<div class="form-add">
+					<label for="commentary">Enter your commentary: </label>
+					<input type="text" name="commentary" id="commentary" required>
+				</div>
+				<div class="form-add">
+					<label for="security">Enter your security: </label>
+					<input type="text" name="security" id="security" required>
+				</div>
+				<div class="form-add">
+					<label for="status">Enter your status: </label>
+					<input type="text" name="status" id="status" required>
+				</div>
+				<div class="form-add">
+					<label for="trader">Enter your trader: </label>
+					<input type="text" name="trader" id="trader" required>
+				</div>
+				<div class="form-add">
+					<label for="book">Enter your book: </label>
+					<input type="text" name="book" id="book" required>
+				</div>
+				<div class="form-add">
+					<label for="creationName">Enter your creationName: </label>
+					<input type="text" name="creationName" id="creationName" required>
+				</div>
+				<div class="form-add">
+					<label for="creationDate">Enter your creationDate: </label>
+					<input type="date" name="creationDate" id="creationDate" required>
+				</div>
+				<div class="form-add">
+					<label for="revisionName">Enter your revisionName: </label>
+					<input type="text" name="revisionName" id="revisionName" required>
+				</div>
+				<div class="form-add">
+					<label for="revisionDate">Enter your revisionDate: </label>
+					<input type="date" name="revisionDate" id="revisionDate" required>
+				</div>
+				<div class="form-add">
+					<label for="dealName">Enter your dealName: </label>
+					<input type="text" name="dealName" id="dealName" required>
+				</div>
+				<div class="form-add">
+					<label for="dealType">Enter your dealType: </label>
+					<input type="text" name="dealType" id="dealType" required>
+				</div>
+				<div class="form-add">
+					<label for="sourceListId">Enter your sourceListId: </label>
+					<input type="text" name="sourceListId" id="sourceListId" required>
+				</div>
+				<div class="form-add">
+					<label for="side">Enter your side: </label>
+					<input type="text" name="side" id="side" required>
+				</div>
+				<div class="form-add">
+					<input type="submit" value="Add">
+				</div>
 		</form>
 	</div>
 
