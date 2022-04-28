@@ -15,7 +15,7 @@ public class LoginController {
     private UserRepository userRepository;
 
     @GetMapping("login")
-    public ModelAndView login() {
+    public ModelAndView  login() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("login");
         return mav;
