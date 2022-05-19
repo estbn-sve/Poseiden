@@ -45,20 +45,15 @@
 				<th th:text="${bidList.getBidQuantity()}">
 				<th>
 					<div class="row">
-						&nbsp;
-						&nbsp;
 						<form action="#" th:action="@{/bidList/update/{id}(id=${bidList.getBidListId()})}" th:object="${bidList}" method="GET" class="button-form">
 							<button type="submit" class="btn btn-success">Edit</button>
 						</form>
-						&nbsp;
-						&nbsp;
 						<form action="#" th:action="@{/bidList/delete/{id}(id=${bidList.getBidListId()})}" th:object="${bidList}" method="POST" class="button-form">
 							<button type="submit" class="btn btn-danger">Delete</button>
 						</form>
 					</div>
 				<th/>
 			</tr>
-			<!-- TODO: Show all Bids to the table, the Action column will have Edit & Delete buttons -->
 			</tbody>
 		</table>
 	</div>
