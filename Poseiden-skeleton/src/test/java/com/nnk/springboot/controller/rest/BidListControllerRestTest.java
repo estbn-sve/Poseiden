@@ -1,13 +1,18 @@
 package com.nnk.springboot.controller.rest;
 
+import com.nnk.springboot.controllers.rest.BidListRest;
+import com.nnk.springboot.controllers.rest.TradeRest;
 import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.service.BidListService;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
@@ -18,14 +23,16 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
+
+@RunWith(SpringRunner.class)
+@WebMvcTest(BidListRest.class)
 @AutoConfigureMockMvc
 public class BidListControllerRestTest {
     @Autowired
-    private MockMvc mockMvc;
+    public MockMvc mockMvc;
 
     @MockBean
-    private BidListService service;
+    public BidListService service;
 
     //getAll
     @Test

@@ -123,7 +123,6 @@
     <orderEntry type="library" name="Maven: org.attoparser:attoparser:2.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.unbescape:unbescape:1.1.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.1.RELEASE" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-all:1.10.19" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-devtools:2.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.4.RELEASE" level="project" />
@@ -132,14 +131,5 @@
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.22" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.postgresql:postgresql:42.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.25.0-GA" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter:5.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-params:5.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.8.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-junit-jupiter:4.0.0" level="project" />
   </component>
 </module>
