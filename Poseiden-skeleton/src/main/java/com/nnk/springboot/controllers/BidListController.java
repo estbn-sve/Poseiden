@@ -22,7 +22,6 @@ public class BidListController {
     @RequestMapping("/bidList/list")
     public String home(Model model)
     {
-        // TODO: call service find all bids to show to the view
         model.addAttribute("bidListList", service.getAllBidList());
         return "bidList/list";
     }

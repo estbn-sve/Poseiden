@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
@@ -21,9 +22,14 @@ public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @NotBlank(message = "le champs moodysRating ne peut pas être vide")
     String moodysRating;
+    @NotBlank(message = "le champs sandPRating ne peut pas être vide")
     String sandPRating;
+    @NotBlank(message = "le champs fitchRating ne peut pas être vide")
     String fitchRating;
+    @NotNull(message = "le champs orderNumber ne peut pas être vide")
+    @Min(0)
     Integer orderNumber;
 
 }

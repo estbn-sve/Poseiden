@@ -5,6 +5,7 @@
 <meta charset="utf-8"/>
 <title>Home</title>
 <link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/mycss.css" >
 </head>
 <body>
 <div class="container">
@@ -15,10 +16,39 @@
 
 	<div class="row">
 		<form action="#" th:action="@{/ruleName/validate}" th:object="${ruleName}" method="post" class="form-horizontal" style="width: 100%">
-			<!--
-			TODO: Create a form to input the values of RuleName, there are 2 buttons: Save data and Cancel to the list RuleName
-			 -->
-
+			<div class="form-add">
+				<label for="name">Enter your name: </label>
+				<input type="text" name="name" id="name">
+				<span class="error-text" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name Error</span>
+			</div>
+			<div class="form-add">
+				<label for="description">Enter your description: </label>
+				<input type="text" name="description" id="description">
+				<span class="error-text" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">description Error</span>
+			</div>
+			<div class="form-add">
+				<label for="json">Enter your json: </label>
+				<input type="text" name="json" id="json">
+				<span class="error-text" th:if="${#fields.hasErrors('json')}" th:errors="*{json}">json Error</span>
+			</div>
+			<div class="form-add">
+				<label for="template">Enter your template: </label>
+				<input type="text" name="template" id="template">
+				<span class="error-text" th:if="${#fields.hasErrors('template')}" th:errors="*{template}">template Error</span>
+			</div>
+			<div class="form-add">
+				<label for="sqlStr">Enter your sqlStr: </label>
+				<input type="text" name="sqlStr" id="sqlStr">
+				<span class="error-text" th:if="${#fields.hasErrors('sqlStr')}" th:errors="*{sqlStr}">sqlStr Error</span>
+			</div>
+			<div class="form-add">
+				<label for="sqlPart">Enter your sqlPart: </label>
+				<input type="text" name="sqlPart" id="sqlPart">
+				<span class="error-text" th:if="${#fields.hasErrors('sqlPart')}" th:errors="*{sqlPart}">sqlPart Error</span>
+			</div>
+			<div class="form-add">
+				<input type="submit" value="Add">
+			</div>
 		</form>
 	</div>
 

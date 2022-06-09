@@ -40,9 +40,9 @@
 			<tbody>
 			<tr th:each="bidList:${bidListList}">
 				<th th:text="${bidList.getBidListId()}"/>
-				<th th:text="${bidList.getAccount()}">
+				<th th:text="${bidList.getAccount()}"/>
 				<th th:text="${bidList.getType()}"/>
-				<th th:text="${bidList.getBidQuantity()}">
+				<th th:text="${bidList.getBidQuantity()}"/>
 				<th>
 					<div class="row">
 						<form action="#" th:action="@{/bidList/update/{id}(id=${bidList.getBidListId()})}" th:object="${bidList}" method="GET" class="button-form">

@@ -30,16 +30,16 @@ public class Trade {
     String type;
     @NotNull(message="Le champs buyQuantity ne peux pas être vide")
     @Min(0)
-    Double buyQuantity;
+    double buyQuantity;
     @NotNull(message="Le champs sellQuantity ne peux pas être vide")
     @Min(0)
-    Double sellQuantity;
+    double sellQuantity;
     @NotNull(message="Le champs buyPrice ne peux pas être vide")
     @Min(0)
-    Double buyPrice;
+    double buyPrice;
     @NotNull(message="Le champs sellPrice ne peux pas être vide")
     @Min(0)
-    Double sellPrice;
+    double sellPrice;
     @NotBlank(message = "le champs benchmark ne peut pas être vide")
     String benchmark;
     @DateTimeFormat(pattern = "yyyy-MM-dd")

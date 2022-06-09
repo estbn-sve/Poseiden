@@ -37,7 +37,22 @@
 				</tr>
 			</thead>
 			<tbody>
-			<!-- TODO: Show all CurvePoint to the table, the action column will have Edit & Delete buttons -->
+			<tr th:each="curvePoint:${curvePointList}">
+				<th th:text="${curvePoint.getId()}">
+				<th th:text="${curvePoint.getCurveId()}">
+				<th th:text="${curvePoint.getTerm()}">
+				<th th:text="${curvePoint.getValue()}">
+				<th>
+					<div class="row">
+						<form action="#" th:action="@{/curvePoint/update/{id}(id=${curvePoint.getId()})}" th:object="${curvePoint}" method="GET" class="button-form">
+							<button type="submit" class="btn btn-success">Edit</button>
+						</form>
+						<form action="#" th:action="@{/curvePoint/delete/{id}(id=${curvePoint.getId()})}" th:object="${curvePoint}" method="POST" class="button-form">
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</form>
+					</div>
+				<th/>
+			</tr>
 			</tbody>
 		</table>
 	</div>
