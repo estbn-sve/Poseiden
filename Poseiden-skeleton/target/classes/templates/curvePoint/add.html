@@ -5,6 +5,7 @@
 <meta charset="utf-8"/>
 <title>Home</title>
 <link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/mycss.css" >
 </head>
 <body>
 <div class="container">
@@ -15,10 +16,34 @@
 
 	<div class="row">
 		<form action="#" th:action="@{/curvePoint/validate}" th:object="${curvePoint}" method="post" class="form-horizontal" style="width: 100%">
-			<!--
-			TODO: Create a form to input the values of CurvePoint, there are 2 buttons: Save data and Cancel to the list CurvePoint
-			 -->
-
+			<div class="form-add">
+				<label for="curveId">Enter your curveId: </label>
+				<input type="number" name="curveId" id="curveId">
+				<span class="error-text" th:if="${#fields.hasErrors('curveId')}" th:errors="*{curveId}">CurveId Error</span>
+			</div>
+			<div class="form-add">
+				<label for="asOfDate">Enter your asOfDate: </label>
+				<input type="Date" name="asOfDate" id="asOfDate">
+				<span class="error-text" th:if="${#fields.hasErrors('asOfDate')}" th:errors="*{asOfDate}">asOfDate Error</span>
+			</div>
+			<div class="form-add">
+				<label for="term">Enter your term: </label>
+				<input type="number" name="term" id="term">
+				<span class="error-text" th:if="${#fields.hasErrors('term')}" th:errors="*{term}">term Error</span>
+			</div>
+			<div class="form-add">
+				<label for="value">Enter your value: </label>
+				<input type="number" name="value" id="value">
+				<span class="error-text" th:if="${#fields.hasErrors('value')}" th:errors="*{value}">value Error</span>
+			</div>
+			<div class="form-add">
+				<label for="creationDate">Enter your creationDate: </label>
+				<input type="Date" name="creationDate" id="creationDate">
+				<span class="error-text" th:if="${#fields.hasErrors('creationDate')}" th:errors="*{creationDate}">creationDate Error</span>
+			</div>
+			<div class="form-add">
+				<input type="submit" value="Add">
+			</div>
 		</form>
 	</div>
 

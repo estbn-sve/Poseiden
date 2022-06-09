@@ -39,9 +39,9 @@
 			<tbody>
 			<tr th:each="trade:${tradeList}">
 				<th th:text="${trade.getTradeId()}"/>
-				<th th:text="${trade.getAccount()}">
+				<th th:text="${trade.getAccount()}"/>
 				<th th:text="${trade.getType()}"/>
-				<th th:text="${trade.getBuyQuantity()}">
+				<th th:text="${trade.getBuyQuantity()}"/>
 				<th>
 					<div class="row">
 						<form action="#" th:action="@{/trade/update/{id}(id=${trade.getTradeId()})}" th:object="${trade}" method="GET" class="button-form">

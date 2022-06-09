@@ -5,20 +5,40 @@
 <meta charset="utf-8"/>
 <title>Home</title>
 <link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/mycss.css" >
 </head>
 <body>
 <div class="container">
-
+&
 	<div class="row">
 		<h2>Add New Rating</h2>
 	</div>
 
 	<div class="row">
 		<form action="#" th:action="@{/rating/validate}" th:object="${rating}" method="post" class="form-horizontal" style="width: 100%">
-			<!--
-			TODO: Create a form to input the values of Rating, there are 2 buttons: Save data and Cancel to the list Rating
-			 -->
-
+			<div class="form-add">
+				<label for="moodysRating">Enter your moodysRating: </label>
+				<input type="text" name="moodysRating" id="moodysRating">
+				<span class="error-text" th:if="${#fields.hasErrors('moodysRating')}" th:errors="*{moodysRating}">moodysRating Error</span>
+			</div>
+			<div class="form-add">
+				<label for="sandPRating">Enter your sandPRating: </label>
+				<input type="test" name="sandPRating" id="sandPRating">
+				<span class="error-text" th:if="${#fields.hasErrors('sandPRating')}" th:errors="*{sandPRating}">sandPRating Error</span>
+			</div>
+			<div class="form-add">
+				<label for="fitchRating">Enter your fitchRating: </label>
+				<input type="text" name="fitchRating" id="fitchRating">
+				<span class="error-text" th:if="${#fields.hasErrors('fitchRating')}" th:errors="*{fitchRating}">fitchRating Error</span>
+			</div>
+			<div class="form-add">
+				<label for="orderNumber">Enter your orderNumber: </label>
+				<input type="number" name="orderNumber" id="orderNumber">
+				<span class="error-text" th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}">orderNumber Error</span>
+			</div>
+			<div class="form-add">
+				<input type="submit" value="Add">
+			</div>
 		</form>
 	</div>
 
