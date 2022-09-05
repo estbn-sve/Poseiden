@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class RatingServiceTest {
 
     //all
     @Test
+    @WithMockUser(value = "spring")
     public void getAllRating(){
         List<Rating> Ratings = new ArrayList<>();
         when(repository.findAll()).thenReturn(Ratings);
@@ -38,24 +40,28 @@ public class RatingServiceTest {
 
     //get
     @Test
+    @WithMockUser(value = "spring")
     public void getRating_shouldReturnOk(){
         Rating model = new Rating();
         when(repository.findById(any())).thenReturn(Optional.of(model));
         assertEquals(service.getRating(1),model);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void getRating_shouldThrowNoSuchElement(){
         when(repository.findById(any())).thenReturn(Optional.empty());
         service.getRating(1);
     }
     //update
     @Test
+    @WithMockUser(value = "spring")
     public void putRating_shouldReturnOk(){
         Rating model = new Rating();
         when(repository.findById(any())).thenReturn(Optional.of(model));
         assertEquals(service.putRating(model,1),model);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void putRating_shouldThrowNoSuchElement(){
         Rating model = new Rating();
         when(repository.existsById(any())).thenReturn(false);
@@ -63,6 +69,7 @@ public class RatingServiceTest {
     }
     //add
     @Test
+    @WithMockUser(value = "spring")
     public void addRating_shouldReturnOk(){
         Rating model = new Rating();
         model.setId(1);
@@ -71,6 +78,7 @@ public class RatingServiceTest {
         assertEquals(service.addRating(model),model);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void addRating_shouldThrowNoSuchElement(){
         Rating model = new Rating();
         model.setId(1);
@@ -80,6 +88,7 @@ public class RatingServiceTest {
     }
     //delete
     @Test
+    @WithMockUser(value = "spring")
     public void deleteRating_shouldReturnOk(){
         Rating model = new Rating();
         model.setFitchRating("test");
@@ -89,6 +98,7 @@ public class RatingServiceTest {
         assertEquals(model.getFitchRating(), modelResult.getFitchRating());
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void deleteRating_shouldThrowNoSuchElement(){
         when(repository.findById(any())).thenReturn(Optional.empty());
         service.deleteRating(1);

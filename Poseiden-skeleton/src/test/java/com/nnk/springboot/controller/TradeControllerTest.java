@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -31,6 +32,7 @@ public class TradeControllerTest {
     public TradeService service;
 
     @Test
+    @WithMockUser(value = "spring")
     public void  TradeHomeListTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllTrade()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/trade/list"))
@@ -40,6 +42,7 @@ public class TradeControllerTest {
     }
 
     @Test
+    @WithMockUser(value = "spring")
     public void  TradeAddBodFormTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllTrade()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/trade/add"))
@@ -47,6 +50,7 @@ public class TradeControllerTest {
                 .andExpect(view().name("trade/add"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  TradeValidateTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllTrade()).thenReturn(new ArrayList<>());
         mockMvc.perform(post("/trade/validate"))
@@ -54,6 +58,7 @@ public class TradeControllerTest {
                 .andExpect(view().name("trade/add"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  TradeShowUpdateFormTest_ShouldReturn_Ok() throws Exception {
         Trade t = new Trade();
         when(service.getTrade(any())).thenReturn(t);
@@ -63,6 +68,7 @@ public class TradeControllerTest {
                 .andExpect(view().name("trade/update"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  TradeUpdateBidTest_ShouldReturn_Ok() throws Exception {
         Trade t = new Trade();
         when(service.getTrade(any())).thenReturn(t);
@@ -72,6 +78,7 @@ public class TradeControllerTest {
                 .andExpect(view().name("trade/update"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  TradeDeleteBitTest_ShouldReturn_Ok() throws Exception {
         Trade t = new Trade();
         when(service.deleteTrade(any())).thenReturn(t);

@@ -34,30 +34,9 @@ public class CurvePointService {
     }
 
     public CurvePoint putCurvePoint(CurvePoint currentDomain, final Integer id){
-        if (repository.existsById(id)){
-            CurvePoint domain = currentDomain;
-            currentDomain = repository.findById(id).get();
-            Integer curveId = domain.getCurveId();
-            if (curveId != null) {
-                currentDomain.setCurveId(curveId);
-            }
-            Date asOfDate = domain.getAsOfDate();
-            if (asOfDate != null) {
-                currentDomain.setAsOfDate(asOfDate);
-            }
-            Double term = domain.getTerm();
-            if(term!=null){
-                currentDomain.setTerm(term);
-            }
-            Double value = domain.getValue();
-            if(value!=null){
-                currentDomain.setValue(value);
-            }
-            Date creationDate = domain.getCreationDate();
-            if(creationDate!=null){
-                currentDomain.setCreationDate(creationDate);
-            }
-            return repository.save(currentDomain);
+        if(repository.existsById(id)){
+            repository.save(currentDomain);
+            return currentDomain;
         } else {
             return repository.findById(id).orElseThrow(()->
                     new NoSuchElementException("Error with putCurvePoint "+id));

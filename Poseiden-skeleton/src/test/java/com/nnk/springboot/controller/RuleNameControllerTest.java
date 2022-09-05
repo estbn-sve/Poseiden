@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -32,6 +33,7 @@ public class RuleNameControllerTest {
     public RuleNameService service;
 
     @Test
+    @WithMockUser(value = "spring")
     public void  RuleNameHomeListTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllRuleName()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/ruleName/list"))
@@ -41,6 +43,7 @@ public class RuleNameControllerTest {
     }
 
     @Test
+    @WithMockUser(value = "spring")
     public void  RuleNameAddBodFormTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllRuleName()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/ruleName/add"))
@@ -48,6 +51,7 @@ public class RuleNameControllerTest {
                 .andExpect(view().name("ruleName/add"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  RuleNameValidateTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllRuleName()).thenReturn(new ArrayList<>());
         mockMvc.perform(post("/ruleName/validate"))
@@ -55,6 +59,7 @@ public class RuleNameControllerTest {
                 .andExpect(view().name("ruleName/add"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  RuleNameShowUpdateFormTest_ShouldReturn_Ok() throws Exception {
         RuleName t = new RuleName();
         when(service.getRuleName(any())).thenReturn(t);
@@ -64,6 +69,7 @@ public class RuleNameControllerTest {
                 .andExpect(view().name("ruleName/update"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  RuleNameUpdateBidTest_ShouldReturn_Ok() throws Exception {
         RuleName t = new RuleName();
         when(service.getRuleName(any())).thenReturn(t);
@@ -73,6 +79,7 @@ public class RuleNameControllerTest {
                 .andExpect(view().name("ruleName/update"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  RuleNameDeleteBitTest_ShouldReturn_Ok() throws Exception {
         RuleName t = new RuleName();
         when(service.deleteRuleName(any())).thenReturn(t);

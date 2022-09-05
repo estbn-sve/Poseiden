@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 @Controller
 public class RuleNameController {
     String url = "ruleName";
     @Autowired
-    private RuleNameService service;
+    private RuleNameService service
+            ;
 
     @RequestMapping("/ruleName/list")
     public String home(Model model)

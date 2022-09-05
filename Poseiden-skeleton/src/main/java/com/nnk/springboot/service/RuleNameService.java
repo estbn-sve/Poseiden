@@ -36,34 +36,9 @@ public class RuleNameService {
     }
 
     public RuleName putRuleName(RuleName currentDomain, final Integer id){
-        if (repository.existsById(id)){
-            RuleName domain = currentDomain;
-            currentDomain = repository.findById(id).get();
-            String name = domain.getName();
-            if (name != null) {
-                currentDomain.setName(name);
-            }
-            String description = domain.getDescription();
-            if (description != null) {
-                currentDomain.setDescription(description);
-            }
-            String json = domain.getJson();
-            if(json!=null){
-                currentDomain.setJson(json);
-            }
-            String template = domain.getTemplate();
-            if(template!=null){
-                currentDomain.setTemplate(template);
-            }
-            String sqlStr = domain.getSqlStr();
-            if(sqlStr!=null){
-                currentDomain.setSqlStr(sqlStr);
-            }
-            String sqlPart = domain.getSqlPart();
-            if(sqlPart!=null){
-                currentDomain.setSqlPart(sqlPart);
-            }
-            return repository.save(currentDomain);
+        if(repository.existsById(id)){
+            repository.save(currentDomain);
+            return currentDomain;
         } else {
             return repository.findById(id).orElseThrow(()->
                     new NoSuchElementException("Error with putRuleName "+id));

@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class CurvePointServiceTest {
 
     //all
     @Test
+    @WithMockUser(value = "spring")
     public void getAllCurvePoint(){
         List<CurvePoint> CurvePoints = new ArrayList<>();
         when(repository.findAll()).thenReturn(CurvePoints);
@@ -37,24 +39,28 @@ public class CurvePointServiceTest {
 
     //get
     @Test
+    @WithMockUser(value = "spring")
     public void getCurvePoint_shouldReturnOk(){
         CurvePoint model = new CurvePoint();
         when(repository.findById(any())).thenReturn(Optional.of(model));
         assertEquals(service.getCurvePoint(1),model);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void getCurvePoint_shouldThrowNoSuchElement(){
         when(repository.findById(any())).thenReturn(Optional.empty());
         service.getCurvePoint(1);
     }
     //update
     @Test
+    @WithMockUser(value = "spring")
     public void putCurvePoint_shouldReturnOk(){
         CurvePoint model = new CurvePoint();
         when(repository.findById(any())).thenReturn(Optional.of(model));
         assertEquals(service.putCurvePoint(model,1),model);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void putCurvePoint_shouldThrowNoSuchElement(){
         CurvePoint model = new CurvePoint();
         when(repository.existsById(any())).thenReturn(false);
@@ -62,6 +68,7 @@ public class CurvePointServiceTest {
     }
     //add
     @Test
+    @WithMockUser(value = "spring")
     public void addCurvePoint_shouldReturnOk(){
         CurvePoint model = new CurvePoint();
         model.setId(1);
@@ -70,6 +77,7 @@ public class CurvePointServiceTest {
         assertEquals(service.addCurvePoint(model),model);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void addCurvePoint_shouldThrowNoSuchElement(){
         CurvePoint model = new CurvePoint();
         model.setId(1);
@@ -79,6 +87,7 @@ public class CurvePointServiceTest {
     }
     //delete
     @Test
+    @WithMockUser(value = "spring")
     public void deleteCurvePoint_shouldReturnOk(){
         CurvePoint model = new CurvePoint();
         model.setCurveId(2);
@@ -88,6 +97,7 @@ public class CurvePointServiceTest {
         assertEquals(model.getCurveId(), modelResult.getCurveId());
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void deleteCurvePoint_shouldThrowNoSuchElement(){
         when(repository.findById(any())).thenReturn(Optional.empty());
         service.deleteCurvePoint(1);

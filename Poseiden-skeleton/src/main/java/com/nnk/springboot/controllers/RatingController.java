@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 @Controller
@@ -26,7 +27,6 @@ public class RatingController {
         model.addAttribute(url+"List", service.getAllRating());
         return url+"/list";
     }
-
     @GetMapping("/rating/add")
     public String addRatingForm(Rating domain) {
         return url+"/add";
