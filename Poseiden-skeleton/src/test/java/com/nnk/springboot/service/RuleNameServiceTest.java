@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class RuleNameServiceTest {
 
     //all
     @Test
+    @WithMockUser(value = "spring")
     public void getAllRuleName(){
         List<RuleName> RuleNames = new ArrayList<>();
         when(repository.findAll()).thenReturn(RuleNames);
@@ -37,24 +39,28 @@ public class RuleNameServiceTest {
 
     //get
     @Test
+    @WithMockUser(value = "spring")
     public void getRuleName_shouldReturnOk(){
         RuleName model = new RuleName();
         when(repository.findById(any())).thenReturn(Optional.of(model));
         assertEquals(service.getRuleName(1),model);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void getRuleName_shouldThrowNoSuchElement(){
         when(repository.findById(any())).thenReturn(Optional.empty());
         service.getRuleName(1);
     }
     //update
     @Test
+    @WithMockUser(value = "spring")
     public void putRuleName_shouldReturnOk(){
         RuleName model = new RuleName();
         when(repository.findById(any())).thenReturn(Optional.of(model));
         assertEquals(service.putRuleName(model,1),model);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void putRuleName_shouldThrowNoSuchElement(){
         RuleName model = new RuleName();
         when(repository.existsById(any())).thenReturn(false);
@@ -62,6 +68,7 @@ public class RuleNameServiceTest {
     }
     //add
     @Test
+    @WithMockUser(value = "spring")
     public void addRuleName_shouldReturnOk(){
         RuleName model = new RuleName();
         model.setId(1);
@@ -70,6 +77,7 @@ public class RuleNameServiceTest {
         assertEquals(service.addRuleName(model),model);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void addRuleName_shouldThrowNoSuchElement(){
         RuleName model = new RuleName();
         model.setId(1);
@@ -79,6 +87,7 @@ public class RuleNameServiceTest {
     }
     //delete
     @Test
+    @WithMockUser(value = "spring")
     public void deleteRuleName_shouldReturnOk(){
         RuleName model = new RuleName();
         model.setName("name");
@@ -88,6 +97,7 @@ public class RuleNameServiceTest {
         assertEquals(model.getName(), modelResult.getName());
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void deleteRuleName_shouldThrowNoSuchElement(){
         when(repository.findById(any())).thenReturn(Optional.empty());
         service.deleteRuleName(1);

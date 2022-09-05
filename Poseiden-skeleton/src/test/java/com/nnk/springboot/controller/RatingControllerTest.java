@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -32,6 +33,7 @@ public class RatingControllerTest {
     public RatingService service;
 
     @Test
+    @WithMockUser(value = "spring")
     public void  RatingHomeListTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllRating()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/rating/list"))
@@ -41,6 +43,7 @@ public class RatingControllerTest {
     }
 
     @Test
+    @WithMockUser(value = "spring")
     public void  RatingAddBodFormTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllRating()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/rating/add"))
@@ -48,6 +51,7 @@ public class RatingControllerTest {
                 .andExpect(view().name("rating/add"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  RatingValidateTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllRating()).thenReturn(new ArrayList<>());
         mockMvc.perform(post("/rating/validate"))
@@ -55,6 +59,7 @@ public class RatingControllerTest {
                 .andExpect(view().name("rating/add"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  RatingShowUpdateFormTest_ShouldReturn_Ok() throws Exception {
         Rating t = new Rating();
         when(service.getRating(any())).thenReturn(t);
@@ -64,6 +69,7 @@ public class RatingControllerTest {
                 .andExpect(view().name("rating/update"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  RatingUpdateBidTest_ShouldReturn_Ok() throws Exception {
         Rating t = new Rating();
         when(service.getRating(any())).thenReturn(t);
@@ -73,6 +79,7 @@ public class RatingControllerTest {
                 .andExpect(view().name("rating/update"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  RatingDeleteBitTest_ShouldReturn_Ok() throws Exception {
         Rating t = new Rating();
         when(service.deleteRating(any())).thenReturn(t);

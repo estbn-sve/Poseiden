@@ -34,26 +34,9 @@ public class RatingService {
     }
 
     public Rating putRating(Rating currentDomain, final Integer id){
-        if (repository.existsById(id)){
-            Rating domain = currentDomain;
-            currentDomain = repository.findById(id).get();
-            String moodysRating = domain.getMoodysRating();
-            if (moodysRating != null) {
-                currentDomain.setMoodysRating(moodysRating);
-            }
-            String sandPRating = domain.getSandPRating();
-            if (sandPRating != null) {
-                currentDomain.setSandPRating(sandPRating);
-            }
-            String fitchRating = domain.getFitchRating();
-            if(fitchRating!=null){
-                currentDomain.setFitchRating(fitchRating);
-            }
-            Integer orderNumber = domain.getOrderNumber();
-            if(orderNumber!=null){
-                currentDomain.setOrderNumber(orderNumber);
-            }
-            return repository.save(currentDomain);
+        if(repository.existsById(id)){
+            repository.save(currentDomain);
+            return currentDomain;
         } else {
             return repository.findById(id).orElseThrow(()->
                     new NoSuchElementException("Error with putRating "+id));

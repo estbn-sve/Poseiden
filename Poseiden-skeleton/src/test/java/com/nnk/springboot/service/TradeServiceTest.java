@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class TradeServiceTest {
 
     //all
     @Test
+    @WithMockUser(value = "spring")
     public void getAllTrade(){
         List<Trade> Trades = new ArrayList<>();
         when(repository.findAll()).thenReturn(Trades);
@@ -37,24 +39,28 @@ public class TradeServiceTest {
 
     //get
     @Test
+    @WithMockUser(value = "spring")
     public void getTrade_shouldReturnOk(){
         Trade domain = new Trade();
         when(repository.findById(any())).thenReturn(Optional.of(domain));
         assertEquals(service.getTrade(1),domain);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void getTrade_shouldThrowNoSuchElement(){
         when(repository.findById(any())).thenReturn(Optional.empty());
         service.getTrade(1);
     }
     //update
     @Test
+    @WithMockUser(value = "spring")
     public void putTrade_shouldReturnOk(){
         Trade domain = new Trade();
         when(repository.findById(any())).thenReturn(Optional.of(domain));
         assertEquals(service.putTrade(domain,1),domain);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void putTrade_shouldThrowNoSuchElement(){
         Trade domain = new Trade();
         when(repository.existsById(any())).thenReturn(false);
@@ -62,6 +68,7 @@ public class TradeServiceTest {
     }
     //add
     @Test
+    @WithMockUser(value = "spring")
     public void addTrade_shouldReturnOk(){
         Trade domain = new Trade();
         domain.setTradeId(1);
@@ -70,6 +77,7 @@ public class TradeServiceTest {
         assertEquals(service.addTrade(domain),domain);
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void addTrade_shouldThrowNoSuchElement(){
         Trade domain = new Trade();
         domain.setTradeId(1);
@@ -79,6 +87,7 @@ public class TradeServiceTest {
     }
     //delete
     @Test
+    @WithMockUser(value = "spring")
     public void deleteTrade_shouldReturnOk(){
         Trade domain = new Trade();
         domain.setType("test");
@@ -88,6 +97,7 @@ public class TradeServiceTest {
         assertEquals(domain.getType(), domainResult.getType());
     }
     @Test(expected = NoSuchElementException.class)
+    @WithMockUser(value = "spring")
     public void deleteTrade_shouldThrowNoSuchElement(){
         when(repository.findById(any())).thenReturn(Optional.empty());
         service.deleteTrade(1);

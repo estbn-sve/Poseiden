@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -32,6 +33,7 @@ public class CurvePointControllerTest {
     public CurvePointService service;
 
     @Test
+    @WithMockUser(value = "spring")
     public void  CurvePointHomeListTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllCurvePoint()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/curvePoint/list"))
@@ -41,6 +43,7 @@ public class CurvePointControllerTest {
     }
 
     @Test
+    @WithMockUser(value = "spring")
     public void  CurvePointAddBodFormTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllCurvePoint()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/curvePoint/add"))
@@ -48,6 +51,7 @@ public class CurvePointControllerTest {
                 .andExpect(view().name("curvePoint/add"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  CurvePointValidateTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllCurvePoint()).thenReturn(new ArrayList<>());
         mockMvc.perform(post("/curvePoint/validate"))
@@ -55,6 +59,7 @@ public class CurvePointControllerTest {
                 .andExpect(view().name("curvePoint/add"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  CurvePointShowUpdateFormTest_ShouldReturn_Ok() throws Exception {
         CurvePoint t = new CurvePoint();
         when(service.getCurvePoint(any())).thenReturn(t);
@@ -64,6 +69,7 @@ public class CurvePointControllerTest {
                 .andExpect(view().name("curvePoint/update"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  CurvePointUpdateBidTest_ShouldReturn_Ok() throws Exception {
         CurvePoint t = new CurvePoint();
         when(service.getCurvePoint(any())).thenReturn(t);
@@ -73,6 +79,7 @@ public class CurvePointControllerTest {
                 .andExpect(view().name("curvePoint/update"));
     }
     @Test
+    @WithMockUser(value = "spring")
     public void  CurvePointDeleteBitTest_ShouldReturn_Ok() throws Exception {
         CurvePoint t = new CurvePoint();
         when(service.deleteCurvePoint(any())).thenReturn(t);

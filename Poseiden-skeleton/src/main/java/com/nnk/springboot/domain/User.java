@@ -15,9 +15,6 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 @Table(name = "users")
 public class User {
-    //OAUTH2 GITHUB
-    //springSecurity
-    //BCrypt
     //cours sur le projet
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

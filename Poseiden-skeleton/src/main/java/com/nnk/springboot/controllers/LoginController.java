@@ -37,4 +37,12 @@ public class LoginController {
         mav.setViewName("403");
         return mav;
     }
+
+    @RequestMapping("/*")
+    public ModelAndView getGithub()
+    {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("github");
+        return mav;
+    }
 }
