@@ -34,16 +34,6 @@ public class RatingControllerTest {
 
     @Test
     @WithMockUser(value = "spring")
-    public void  RatingHomeListTest_ShouldReturn_Ok() throws Exception {
-        when(service.getAllRating()).thenReturn(new ArrayList<>());
-        mockMvc.perform(get("/rating/list"))
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("ratingList"))
-                .andExpect(view().name("rating/list"));
-    }
-
-    @Test
-    @WithMockUser(value = "spring")
     public void  RatingAddBodFormTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllRating()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/rating/add"))

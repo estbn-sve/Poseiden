@@ -30,11 +30,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(service).passwordEncoder(new BCryptPasswordEncoder());
         auth.inMemoryAuthentication()
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("spring")
+                .withUser("springAdmin")
                 .password(new BCryptPasswordEncoder().encode("secret"))
-                .roles("ADMIN")
-                .authorities("USER")
-        ;
+                .authorities("ADMIN");
+        auth.inMemoryAuthentication()
+                .passwordEncoder(new BCryptPasswordEncoder())
+                .withUser("springUser")
+                .password(new BCryptPasswordEncoder().encode("secret"))
+                .authorities("USER");
     }
 
     @Override

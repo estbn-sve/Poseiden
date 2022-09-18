@@ -61,12 +61,7 @@ public class UserService implements UserDetailsService {
         return copy;
     }
 
-    /**
-     * a commenter
-     * @param s
-     * @return
-     * @throws UsernameNotFoundException
-     */
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User userApp = repository.findByUsername(s).orElseThrow(()->

@@ -32,15 +32,6 @@ public class RuleNameControllerTest {
     @MockBean
     public RuleNameService service;
 
-    @Test
-    @WithMockUser(value = "spring")
-    public void  RuleNameHomeListTest_ShouldReturn_Ok() throws Exception {
-        when(service.getAllRuleName()).thenReturn(new ArrayList<>());
-        mockMvc.perform(get("/ruleName/list"))
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("ruleNameList"))
-                .andExpect(view().name("ruleName/list"));
-    }
 
     @Test
     @WithMockUser(value = "spring")

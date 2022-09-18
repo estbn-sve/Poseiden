@@ -34,16 +34,6 @@ public class CurvePointControllerTest {
 
     @Test
     @WithMockUser(value = "spring")
-    public void  CurvePointHomeListTest_ShouldReturn_Ok() throws Exception {
-        when(service.getAllCurvePoint()).thenReturn(new ArrayList<>());
-        mockMvc.perform(get("/curvePoint/list"))
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("curvePointList"))
-                .andExpect(view().name("curvePoint/list"));
-    }
-
-    @Test
-    @WithMockUser(value = "spring")
     public void  CurvePointAddBodFormTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllCurvePoint()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/curvePoint/add"))
