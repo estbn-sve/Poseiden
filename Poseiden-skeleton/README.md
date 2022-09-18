@@ -22,6 +22,7 @@ You will find below a step by step explanation that tell you how to get a develo
 ## Authorisation :
 
 Users with ADMIN role are authorized to access and manage financial entities AND users
+
 Users with USER role are authorized to access and manage financial entities but are NOT authorized to access and manage users
 
 ## Authentification :
@@ -39,7 +40,9 @@ A Security layer is included within the application.
 When the application starts, 2 users are recorded and have access to the application :
 
 A user having a ADMIN role : username = springAdmin / password = secret
+
 A user having a USER role : username = springUser / password = secret
+
 You can use these credentials to connect to the application.
 
 Authentification token with protocol Oauth2
