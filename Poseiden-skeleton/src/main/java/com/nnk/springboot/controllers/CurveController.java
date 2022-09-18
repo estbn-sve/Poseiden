@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 @Controller
@@ -44,7 +43,6 @@ public class CurveController {
 
     @GetMapping("/curvePoint/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        // TODO: get domain by Id and to model then show to the form
         model.addAttribute(url, service.getCurvePoint(id));
         return url+"/update";
     }
