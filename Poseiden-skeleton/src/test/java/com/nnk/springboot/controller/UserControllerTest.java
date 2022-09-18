@@ -35,16 +35,6 @@ public class UserControllerTest {
 
     @Test
     @WithMockUser(username = "admin", authorities = {"ADMIN"})
-    public void  UserHomeListTest_ShouldReturn_Ok() throws Exception {
-        when(service.getAllUser()).thenReturn(new ArrayList<>());
-        mockMvc.perform(get("/user/list"))
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("users"))
-                .andExpect(view().name("user/list"));
-    }
-
-    @Test
-    @WithMockUser(username = "admin", authorities = {"ADMIN"})
     public void  UserAddBodFormTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllUser()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/user/add"))

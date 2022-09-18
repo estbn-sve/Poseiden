@@ -33,16 +33,6 @@ public class TradeControllerTest {
 
     @Test
     @WithMockUser(value = "spring")
-    public void  TradeHomeListTest_ShouldReturn_Ok() throws Exception {
-        when(service.getAllTrade()).thenReturn(new ArrayList<>());
-        mockMvc.perform(get("/trade/list"))
-                .andExpect(status().isOk())
-                .andExpect(model().attributeExists("tradeList"))
-                .andExpect(view().name("trade/list"));
-    }
-
-    @Test
-    @WithMockUser(value = "spring")
     public void  TradeAddBodFormTest_ShouldReturn_Ok() throws Exception {
         when(service.getAllTrade()).thenReturn(new ArrayList<>());
         mockMvc.perform(get("/trade/add"))

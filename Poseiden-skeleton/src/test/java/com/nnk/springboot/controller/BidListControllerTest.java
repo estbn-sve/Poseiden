@@ -29,16 +29,6 @@ public class BidListControllerTest {
     @MockBean
     public BidListService service;
 
-//    @Test
-//    @WithMockUser(value = "spring")
-//    public void  bidListHomeListTest_ShouldReturn_Ok() throws Exception {
-//        when(service.getAllBidList()).thenReturn(new ArrayList<>());
-//        mockMvc.perform(get("/bidList/list"))
-//                .andExpect(status().isOk())
-//                .andExpect(model().attributeExists("bidListList"))
-//                .andExpect(view().name("bidList/list"));
-//    }
-
     @Test
     @WithMockUser(value = "spring")
     public void  bidListAddBodFormTest_ShouldReturn_Ok() throws Exception {
