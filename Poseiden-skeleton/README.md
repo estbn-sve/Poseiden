@@ -15,9 +15,21 @@ You will find below a step by step explanation that tell you how to get a develo
 
 2.Install Maven: https://maven.apache.org/install.html
 
-3.Install SpringBoot : https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started-installing-spring-boot
+3.Install postgreSQL : https://www.postgresql.org/download/
 
-4.Install postgreSQL : https://www.postgresql.org/download/
+# Maven :
+## Test :
+
+In a terminal, you go to the source folder of the application and can run the `mvn test` command to perform the tests
+## Deploy :
+
+In a terminal, you go to the source folder of the application and can run the `mvn package` command to generate the application jar file
+
+After generate jar file, run the `mvn install` command for push jar file in the local repository
+
+And last run the `mvn deploy` command for deploy application in your server
+
+But you can only use `mvn deploy` command, this command execute previous commands
 
 ## Authorisation :
 
@@ -26,6 +38,7 @@ Users with ADMIN role are authorized to access and manage financial entities AND
 Users with USER role are authorized to access and manage financial entities but are NOT authorized to access and manage users
 
 ## Authentification :
+
 Authentification session with formLogin
 
 Security and connection to the application
@@ -47,7 +60,7 @@ You can use these credentials to connect to the application.
 
 Authentification token with protocol Oauth2
 
-##Endpoints : 
+## Endpoints : 
 Endpoints are available for managing financial entities with CRUD methods. Endpoints are available for each entity :
 
 Rating, BidList, CurvePoint, RuleName and Trade.
